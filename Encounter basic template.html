@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+          .flex-container{
+          border-style: double;
+          flex-direction: row;
+          display: flex;
+          margin: 5px;
+  }
+
+      body {background-color: rgb(78, 78, 78);
+      color: #e8e6e3;}
+      table {border-style: solid;
+              border-width: 1px;}
+      h2 {margin:0 }
+      h1 {margin:0 }
+      p { margin:0 }
+      h2   {text-decoration: underline;}
+      h1   {text-decoration: underline;
+        color: #ffffff}
+      .content {border-style: solid;
+                border-color: black;
+              display: flex;
+            /* max-width: 40%; */
+            flex-wrap: nowrap;}
+      strong {color: #000000;
+        background-color: rgb(255, 255, 255);
+}
+      .hp{
+        padding: 10px;
+        display:inline-block;
+        text-align: center;
+      }
+    </style>
+
+  </head>
+  <body>
+    <script type="text/javascript">
+        function hp(){
+        switch (event.target.innerText) {
+          case '+1':
+            event.target.previousElementSibling.previousElementSibling.previousElementSibling.value++;
+            event.target.nextElementSibling.innerText=event.target.previousElementSibling.previousElementSibling.previousElementSibling.value;
+            break;
+          case '+5':
+          event.target.previousElementSibling.previousElementSibling.value+=5;
+            event.target.nextElementSibling.nextElementSibling.innerText=event.target.previousElementSibling.previousElementSibling.value;
+            break;
+          case '+20':
+          event.target.previousElementSibling.value+=20;
+            event.target.nextElementSibling.nextElementSibling.nextElementSibling.innerText=event.target.previousElementSibling.value;
+            break;
+          case '-1':
+            event.target.nextElementSibling.nextElementSibling.nextElementSibling.value--;
+            event.target.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.innerText=event.target.nextElementSibling.nextElementSibling.nextElementSibling.value;
+            break;
+          case '-5':
+          event.target.nextElementSibling.nextElementSibling.value-=5;
+            event.target.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.innerText=event.target.nextElementSibling.nextElementSibling.value;
+            break;
+          case '-20':
+          event.target.nextElementSibling.value-=20;
+            event.target.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.innerText=event.target.nextElementSibling.value;
+            break;
+        }  } 
+    </script>
+    <p>
+        NOTES This is the stacked vertically version of the template. Included is a monster and some hp bars to see the formatting. 
+    </p>
+    <!-- copy the flex container div to make more tiles -->
+    <div class="flex-container"> 
+        <div>
+            <img src="vegepygmy.png">
+          </div>
+          
+          
+          <div class="hp">
+          
+            <button onclick=hp()>-1</button>
+            <button onclick=hp()>-5</button>
+            <button onclick=hp()>-20</button>
+            <meter optimum='9' high='5' low='3' value='9' min='0' max='9'></meter>
+            <button onClick=hp()>+20</button>
+            <button onClick=hp()>+5</button>
+            <button onClick=hp()>+1</button>
+            <p>9</p>
+                    
+            <button onclick=hp()>-1</button>
+            <button onclick=hp()>-5</button>
+            <button onclick=hp()>-20</button>
+            <meter optimum='9' high='5' low='3' value='9' min='0' max='9'></meter>
+            <button onClick=hp()>+20</button>
+            <button onClick=hp()>+5</button>
+            <button onClick=hp()>+1</button>
+            <p>9</p>
+                    
+            <button onclick=hp()>-1</button>
+            <button onclick=hp()>-5</button>
+            <button onclick=hp()>-20</button>
+            <meter optimum='9' high='5' low='3' value='9' min='0' max='9'></meter>
+            <button onClick=hp()>+20</button>
+            <button onClick=hp()>+5</button>
+            <button onClick=hp()>+1</button>
+            <p>9</p>
+  
+                    
+          </div>
+        </div>
+        <div class="flex-container">
+            <div>
+                <img src="vegepygmy.png">
+              </div>
+              
+              
+              <div class="hp">
+              
+                <button onclick=hp()>-1</button>
+                <button onclick=hp()>-5</button>
+                <button onclick=hp()>-20</button>
+                <meter optimum='9' high='5' low='3' value='9' min='0' max='9'></meter>
+                <button onClick=hp()>+20</button>
+                <button onClick=hp()>+5</button>
+                <button onClick=hp()>+1</button>
+                <p>9</p>
+                        
+                <button onclick=hp()>-1</button>
+                <button onclick=hp()>-5</button>
+                <button onclick=hp()>-20</button>
+                <meter optimum='9' high='5' low='3' value='9' min='0' max='9'></meter>
+                <button onClick=hp()>+20</button>
+                <button onClick=hp()>+5</button>
+                <button onClick=hp()>+1</button>
+                <p>9</p>
+                        
+                <button onclick=hp()>-1</button>
+                <button onclick=hp()>-5</button>
+                <button onclick=hp()>-20</button>
+                <meter optimum='9' high='5' low='3' value='9' min='0' max='9'></meter>
+                <button onClick=hp()>+20</button>
+                <button onClick=hp()>+5</button>
+                <button onClick=hp()>+1</button>
+                <p>9</p>
+      
+                        
+              </div>
+            </div>
+    
+
+  </body>
+</html>
