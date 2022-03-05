@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Clever Encounter Builder</title>
+        <style>
+             ul {
+                list-style-type: none;
+            }
+            ul li{
+                margin-bottom:10px;
+            }
+            .quantity {
+                width: 3em;
+            }
+            .hp{
+                width: 4em;
+            }
+
+            #text-val {
+                display: none
+            }
+        </style>
+    </head>
+    <body>
+        <!-- UPLOAD SECTION -->
+        <p>Click on the "Choose File" button to upload a file:</p>
+
+        <form onSubmit="return false;">
+            <input type="file" id="myFile" name="filename" multiple>
+            <input type="submit" onClick="processTheFileNames()">
+        </form>
+
+        <br/><br/><br/>
+
+
+        <!-- HIDE/SHOW AND ADD TO TEXTAREA SECTION -->
+        <button onclick="hideShowTextArea()">hide the textarea</button>
+        <button onclick="addToTextArea()">Add stuff to the text area</button>
+        <button onclick="appendTest()">Append test</button>
+        
+        
+        <br/> <br/>
+
+        <!-- QUANTITY + HP SECTION -->
+        <ul  id="LocationForQuantities">
+        </ul>
+
+        <br/> <br/>
+        <!-- BUILDING THE HTML SECTION -->
+
+        <label>Filename</label>
+        <input type="text" id="filename" value="Encounter.html"/>
+
+        <br/><br/><br/>
+
+        <label for="text-val">File content</label>
+        <textarea id="text-val" rows="4">This will be the content of our example</textarea>
+
+        <br/>
+
+        <button type="button" id="download-btn">
+            Download Encounter
+        </button>
+
+        <script>
+            function appendTest() {
+                let indexNumber = "4";
+                let quantityLocation = document.querySelector('#LocationForQuantities');
+                const newLI = document.createElement("li");
+                newLI.innerHTML = `image name <input type="number" class="quantity" id="img${indexNumber}" min="1"> HP: <input type="number" class="hp" id="hp${indexNumber}" min="1">`
+                quantityLocation.appendChild(newLI);
+            }
+            function addToTextArea() {
+                let theTextArea = document.getElementById("text-val");
+                theTextArea.value += "This is added";
+            }
+            function hideShowTextArea() {
+                let theTextArea = document.getElementById("text-val");
+                if (theTextArea.style.display === "block") {
+                    theTextArea.style.display = "none";
+                } else {
+                    theTextArea.style.display = "block";
+                }
+                }
+                //above here are temporary functions
+
+                //THIS IS FOR GETTING FILE NAMES
+            function processTheFileNames(event) {
+                // the next line grabs only the first name.
+                // let listOfFiles = document.getElementsByTagName('input')[0].files[0].name
+                let listOfFiles = document.getElementsByTagName('input')[0].files;
+                for(let i = 0; i < listOfFiles.length; i++) {
+                    let quantityLocation = document.querySelector('#LocationForQuantities');
+                    const newLI = document.createElement("li");
+                    newLI.innerHTML = `Quantity: <input type="number" class="quantity loopTarget" id="${i}" min="1">  HP: <input type="number" class="hp loopTarget" id="hp${i}" min="1">${document.getElementsByTagName('input')[0].files[i].name} `
+                    quantityLocation.appendChild(newLI);
+                };
+            }
+            
+            function forLoopingThroughImageNames(){
+               //for each thing in here: document.getElementsByTagName('input')[0].files (.length), grab document.getElementsByTagName('input')[0].files[index].name and do the thing
+                let times = quantity;
+                for(let i = 0; i < times; i++) {hp();};
+            }
+
+            // DO NOT TOUCH
+            function download(filename, text) {
+            let element = document.createElement('a');
+            element.style.display = 'none';
+            // Define the data of the file using encodeURIComponent
+            element.setAttribute('href', 'data:text/plain; charset=utf-8,' + encodeURIComponent(text))
+            // Add the download attribute of the hidden link
+            element.setAttribute('download', filename);
+            document.body.appendChild(element);
+            // Simulate click of the created link
+            element.click();
+
+            document.body.removeChild(element);
+
+            }
+
+            // When the user clicks the download button, start download
+            // Start file download.
+            document.getElementById("download-btn").addEventListener("click", function(){
+            // Generate download of hello.txt file with some content
+            let text = document.getElementById("text-val").value;
+            let filename = document.getElementById("filename").value;
+            download(filename, text);
+            }, false);
+            
+        </script>
+    </body>
+</html>
+
