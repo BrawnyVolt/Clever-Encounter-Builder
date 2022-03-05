@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Our code World - File Download Tutorial </title>
+    </head>
+    <body>
+        <label>Filename</label>
+        <input type="text" id="filename" value="hello.txt"/>
+
+        <br/><br/><br/>
+
+        <label for="text-val">File content</label>
+        <textarea id="text-val" rows="4">This will be the content of our example</textarea>
+
+        <br/>
+
+        <button type="button" id="download-btn">
+            Download dynamically generated text file
+        </button>
+
+        <script>
+            function download(filename, text) {
+            let element = document.createElement('a');
+            element.style.display = 'none';
+            // Define the data of the file using encodeURIComponent
+            element.setAttribute('href', 'data:text/plain; charset=utf-8,' + encodeURIComponent(text))
+            // Add the download attribute of the hidden link
+            element.setAttribute('download', filename);
+            document.body.appendChild(element);
+            // Simulate click of the created link
+            element.click();
+
+            document.body.removeChild(element);
+
+            }
+
+            // When the user clicks the download button, start download
+            // Start file download.
+            document.getElementById("download-btn").addEventListener("click", function(){
+            // Generate download of hello.txt file with some content
+            let text = document.getElementById("text-val").value;
+            let filename = document.getElementById("filename").value;
+            download(filename, text);
+            }, false);
+        </script>
+    </body>
+</html>
+
