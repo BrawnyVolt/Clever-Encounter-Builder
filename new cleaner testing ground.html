@@ -100,10 +100,28 @@
                 };
             }
             
-            function forLoopingThroughImageNames(){
-               //for each thing in here: document.getElementsByTagName('input')[0].files (.length), grab document.getElementsByTagName('input')[0].files[index].name and do the thing
-                let times = quantity;
-                for(let i = 0; i < times; i++) {hp();};
+            //for each thing in here: document.getElementsByTagName('input')[0].files (.length), grab document.getElementsByTagName('input')[0].files[index].name and do the thing
+            function forLoopingThroughInputValues(){
+                let theTextArea = document.getElementById("text-val");
+                let arrayOfNumbers = document.querySelectorAll(".loopTarget");
+                let listOfFileNames = document.getElementsByTagName('input')[0].files
+                for(let i = 0; i < arrayOfNumbers.length; i += 2) {
+                    theTextArea.value +=  arrayOfNumbers[i].value;
+                    theTextArea.value +=  arrayOfNumbers[i + 1].value;
+                    theTextArea.value += listOfFileNames[(i/2)].name;
+                    //ok, so in this function, it gets weird. we gotta:
+                    //1 clear the textarea, then put in the beginning of the final html block
+                    //2 put in the image nameal the filepath
+                    //3 put in the next chunk of pre-hp stuff
+                    //4 run the hp function and add it quantity times
+                    //5 close out the first div and open the next one
+                    //6 unless its the last one. maybe add more in front of each one to make the lst one work ok?
+
+            
+                }
+               debugger;
+                // let times = quantity;
+                // for(let i = 0; i < times; i++) {hp();};
             }
 
             // DO NOT TOUCH
