@@ -4,11 +4,49 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Our code World - File Download Tutorial </title>
+        <title>Clever Encounter Builder</title>
+        <style>
+            .quantity {
+                width: 3em;
+            }
+
+            #text-val {
+                display: block
+            }
+        </style>
     </head>
     <body>
+        <!-- UPLOAD SECTION -->
+        <p>Click on the "Choose File" button to upload a file:</p>
+
+        <form onsubmit="processTheFileNames()">
+            <input type="file" id="myFile" name="filename" multiple>
+            <input type="submit">
+        </form>
+
+        <br/><br/><br/>
+
+
+        <!-- HIDE/SHOW AND ADD TO TEXTAREA SECTION -->
+        <button onclick="hideShowTextArea()">hide the textarea</button>
+        <button onclick="addToTextArea()">Add stuff to the text area</button>
+        <button onclick="appendTest()">Append test</button>
+        
+        
+        <br/> <br/>
+
+        <!-- QUANTITY + HP SECTION -->
+        <ul  id="LocationForQuantities">
+            <li>
+                image name <input type="number" class="quantity" id="${indexNumber}" min="1" width="3em">
+            </li>
+        </ul>
+
+        <br/> <br/>
+        <!-- BUILDING THE HTML SECTION -->
+
         <label>Filename</label>
-        <input type="text" id="filename" value="hello.txt"/>
+        <input type="text" id="filename" value="Encounter.html"/>
 
         <br/><br/><br/>
 
@@ -18,10 +56,47 @@
         <br/>
 
         <button type="button" id="download-btn">
-            Download dynamically generated text file
+            Download Encounter
         </button>
 
         <script>
+            function appendTest() {
+                let indexNumber = "4";
+                let quantityLocation = document.querySelector('#LocationForQuantities');
+                const newLI = document.createElement("li");
+                newLI.innerHTML = `image name <input type="number" class="quantity" id="${indexNumber}" min="1" width="3em">`
+
+
+                quantityLocation.appendChild(newLI);
+                debugger;
+
+            }
+            function addToTextArea() {
+                let theTextArea = document.getElementById("text-val");
+                theTextArea.value += "This is added";
+            }
+            function hideShowTextArea() {
+                let theTextArea = document.getElementById("text-val");
+                if (theTextArea.style.display === "none") {
+                    theTextArea.style.display = "block";
+                } else {
+                    theTextArea.style.display = "none";
+                }
+                }
+                //above here are temporary functions
+
+                //THIS IS FOR GETTING FILE NAMES
+            function processTheFileNames() {
+                // let listOfFiles = document.getElementsByTagName('input')[0].files[0].name
+                let listOfFiles = document.getElementsByTagName('input').files;
+                let quantityLocation = document.querySelector('#LocationForQuantities');
+                let newThing = `<li>image name <input type="number" class="quantity" id="${indexNumber}" min="1" width="3em"> </li>`;
+                quantityLocation.appendChild(newthing)
+                // let newImageLine = ;
+                debugger;
+            }
+
+            // DO NOT TOUCH
             function download(filename, text) {
             let element = document.createElement('a');
             element.style.display = 'none';
@@ -45,6 +120,7 @@
             let filename = document.getElementById("filename").value;
             download(filename, text);
             }, false);
+            
         </script>
     </body>
 </html>
