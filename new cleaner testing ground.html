@@ -20,7 +20,7 @@
             }
 
             #text-val {
-                display: none
+                display: block
             }
         </style>
     </head>
@@ -40,6 +40,7 @@
         <button onclick="hideShowTextArea()">hide the textarea</button>
         <button onclick="addToTextArea()">Add stuff to the text area</button>
         <button onclick="appendTest()">Append test</button>
+        <button onclick="forLoopingThroughInputValues()">Adding the huge html to textarea</button>
         
         
         <br/> <br/>
@@ -105,27 +106,173 @@
                 let theTextArea = document.getElementById("text-val");
                 let arrayOfNumbers = document.querySelectorAll(".loopTarget");
                 let listOfFileNames = document.getElementsByTagName('input')[0].files
-                for(let i = 0; i < arrayOfNumbers.length; i += 2) {
-                    theTextArea.value +=  arrayOfNumbers[i].value;
-                    theTextArea.value +=  arrayOfNumbers[i + 1].value;
-                    theTextArea.value += listOfFileNames[(i/2)].name;
-                    //ok, so in this function, it gets weird. we gotta:
-                    //1 clear the textarea, then put in the beginning of the final html block
-                    //2 put in the image nameal the filepath
-                    //3 put in the next chunk of pre-hp stuff
-                    //4 run the hp function and add it quantity times
-                    //5 close out the first div and open the next one
-                    //6 unless its the last one. maybe add more in front of each one to make the lst one work ok?
+                let border = `                                <p class="border">____________________________________________________________________________________________________________________</p>`
+                let hpEnd = `        </div>
+    </div>`
+                let imagePrefix = `
+                <div class="flex-container">
+                <div class="flex-vert">
+                    <img src="`
+                debugger;
+                //ok, so in this function, it gets weird. we gotta:
+                //1 clear the textarea, then put in the beginning of the final html block
+                theTextArea.value = `<!DOCTYPE html>
+<html>
+  <head>
+    <style>
 
-            
-                }
-               debugger;
-                // let times = quantity;
-                // for(let i = 0; i < times; i++) {hp();};
-            }
+      .flex-container{
+          border-style: double;
+          flex-direction: row;
+          display: flex;
+          margin: 5px;
+        }
 
-            // DO NOT TOUCH
-            function download(filename, text) {
+      .flex-vert{
+          flex-direction: column;
+          display: flex;
+          padding-right: 10px;
+        }
+
+      body {
+            background-color: rgb(78, 78, 78);
+            color: #e8e6e3;
+        }
+
+      table {
+             border-style: solid;
+             border-width: 1px;
+        }
+
+      h2 {
+          margin:0; 
+          text-decoration: underline;
+        }
+
+      h1 {
+          margin:0; 
+          text-decoration: underline;
+          color: #ffffff
+        }
+
+      p { margin:0 }
+
+      .number {
+                margin-bottom: -8px;
+                font-weight: bold;
+                color: #dedede;
+        }
+
+      .hp-number {
+                  margin-bottom: 3px;
+                  margin-top: -8px;
+        }
+
+        .border {
+                margin-top: -5px;
+                margin-bottom: 1px;
+                font-size: 2px
+        }
+
+      .content {
+                border-style: solid;
+                border-color: black;
+                display: flex;
+                flex-wrap: nowrap;
+        }
+
+      strong {
+              color: #000000;
+              background-color: rgb(255, 255, 255);
+        }
+
+      .third { width: 30vw; }
+
+      .hp {
+        padding: 10px;
+        display:inline-block;
+        text-align: center;
+        }
+    </style>
+
+  </head>
+  <body>
+    <script type="text/javascript">
+        function hp(){
+        switch (event.target.innerText) {
+          case "+1":
+            event.target.previousElementSibling.previousElementSibling.previousElementSibling.value++;
+            event.target.nextElementSibling.innerText=event.target.previousElementSibling.previousElementSibling.previousElementSibling.value;
+            break;
+          case "+5":
+          event.target.previousElementSibling.previousElementSibling.value+=5;
+            event.target.nextElementSibling.nextElementSibling.innerText=event.target.previousElementSibling.previousElementSibling.value;
+            break;
+          case "+20":
+          event.target.previousElementSibling.value+=20;
+            event.target.nextElementSibling.nextElementSibling.nextElementSibling.innerText=event.target.previousElementSibling.value;
+            break;
+          case "-1":
+            event.target.nextElementSibling.nextElementSibling.nextElementSibling.value--;
+            event.target.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.innerText=event.target.nextElementSibling.nextElementSibling.nextElementSibling.value;
+            break;
+          case "-5":
+          event.target.nextElementSibling.nextElementSibling.value-=5;
+            event.target.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.innerText=event.target.nextElementSibling.nextElementSibling.value;
+            break;
+          case "-20":
+          event.target.nextElementSibling.value-=20;
+            event.target.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.innerText=event.target.nextElementSibling.value;
+            break;
+        }  } 
+        </script`;
+        //for some UNKNOWABLE REASON if this lil biter is included above the WHOLE PAGE breaks.
+        theTextArea.value += `>
+        <p>
+            Notes:  
+            </p>
+            `;
+                    //everything after this point is in the for loop
+                    for(let i = 0; i < arrayOfNumbers.length; i += 2) {
+                        // theTextArea.value +=  arrayOfNumbers[i].value;
+                        // theTextArea.value +=  arrayOfNumbers[i + 1].value;
+                        // theTextArea.value += listOfFileNames[(i/2)].name;
+                        debugger;
+                        //1.5 put img prefix in front of incoming data
+                        theTextArea.value += `${imagePrefix}`
+                        //2 put in the image name as the filepath
+                        //3 put in the next chunk of pre-hp stuff
+                        theTextArea.value += `${listOfFileNames[(i/2)].name}">
+                        </div>
+                        
+                        <div class="hp">`
+                            //4 run the hp function and add it quantity times
+                            for(let q = 0; q < arrayOfNumbers[i].value; q += 1) {
+                                theTextArea.value +=`
+                                <p class="number"># ${q+1}</p>
+                                <button onclick=hp()>-1</button>
+                                <button onclick=hp()>-5</button>
+                                <button onclick=hp()>-20</button>
+                                <meter optimum='${arrayOfNumbers[i+1].value}' high='${Math.ceil(arrayOfNumbers[i+1].value/2)}' low='${Math.ceil(arrayOfNumbers[i+1].value/4)}' value='${arrayOfNumbers[i+1].value}' min='0' max='${arrayOfNumbers[i+1].value}'></meter>
+                                <button onClick=hp()>+20</button>
+                                <button onClick=hp()>+5</button>
+                                <button onClick=hp()>+1</button>
+                                <p class="hp-number">${arrayOfNumbers[i+1].value}</p>
+                                ${border}
+                                
+                                `
+                            }
+                            //5 close out the first div and open the next one
+                            theTextArea.value += `${hpEnd}`
+                                
+                                
+                                //6 unless its the last one. maybe add more in front of each one to make the lst one work ok?
+                                // let times = quantity;
+                                // for(let i = 0; i < times; i++) {hp();};
+                    }
+            }                
+                            // DO NOT TOUCH
+                            function download(filename, text) {
             let element = document.createElement('a');
             element.style.display = 'none';
             // Define the data of the file using encodeURIComponent
