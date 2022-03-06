@@ -1,7 +1,7 @@
 # Clever-Encounter-Builder
 Self-contained encounter builder for DnD
 
-Hey there! This is my solution for keeping track of monster hp and stats. 
+Hey there! This is my solution for keeping track of monster hp and stats. You only need to download either the <a href="https://github.com/BrawnyVolt/Clever-Encounter-Builder/blob/main/Clever%20Encounter%20Builder.html">Clever Encounter Builder</a> or it's <a href="https://github.com/BrawnyVolt/Clever-Encounter-Builder/blob/main/Clever%20Encounter%20Builder%20Mini.html">Mini Version</a>
 
 Usage:
 
