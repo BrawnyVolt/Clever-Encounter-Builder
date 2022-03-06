@@ -7,9 +7,9 @@ Usage:
 
 The use is pretty straight forward, and it's got the steps as you go through it. But basically, you're building an old school website for your encounter.
 
-![image](https://user-images.githubusercontent.com/62290713/156913626-3861d9d4-5019-47d3-bbe4-86ca70ed6e73.png)
+![image](https://user-images.githubusercontent.com/62290713/156914226-b7591fe4-d548-4160-a9f4-4ca26f831894.png)
 
-This is how I build my images, all the stats I need, and I don't have to deal with WOtC sending me a cease and desist for copyright stuff.
+This is how I build my images, all the stats I need, and I don't have to deal with WotC sending me a cease and desist for copyright stuff.
 
 Just grab a screen shot of the monsters you want and toss them all into the same folder, upload them into the CEB, then manually enter in how many of each you want and their hp.
 
@@ -21,5 +21,4 @@ Technology:
 
 There's a bunch of vanilla html, css and JavaScript. My goal was always to make the most self contained end product as possible, so of course I started with React and Rails and Ruby, but cut them because it just put more maintenance into the mix. I figured JS and HTML probably aren't going to fundamentally change anytime soon, so this should be fairly future proof.
 
-I do want to give credit to the tutorial where I learned the saveing files approach, but I've lost the link to the sands of time and power outages. If you happen to know where it came from, let me know!
-
+I do want to give credit to the tutorial where I learned the saving files approach, but I've lost the link to the sands of time and power outages. If you happen to know where it came from, let me know!
