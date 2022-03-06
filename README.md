@@ -8,6 +8,7 @@ Usage:
 The use is pretty straight forward, and it's got the steps as you go through it. But basically, you're building an old school website for your encounter.
 
 ![image](https://user-images.githubusercontent.com/62290713/156913626-3861d9d4-5019-47d3-bbe4-86ca70ed6e73.png)
+
 This is how I build my images, all the stats I need, and I don't have to deal with WOtC sending me a cease and desist for copyright stuff.
 
 Just grab a screen shot of the monsters you want and toss them all into the same folder, upload them into the CEB, then manually enter in how many of each you want and their hp.
