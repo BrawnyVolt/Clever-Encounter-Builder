@@ -22,3 +22,7 @@ Technology:
 There's a bunch of vanilla html, css and JavaScript. My goal was always to make the most self contained end product as possible, so of course I started with React and Rails and Ruby, but cut them because it just put more maintenance into the mix. I figured JS and HTML probably aren't going to fundamentally change anytime soon, so this should be fairly future proof.
 
 I do want to give credit to the tutorial where I learned the saving files approach, but I've lost the link to the sands of time and power outages. If you happen to know where it came from, let me know!
+
+Also, I reget not using GH the whole time I was coding this. Through all the different versions, and approaches, I'd have so much more commit history if I had only put my mistakes on here (>﹏<)
+
+![image](https://user-images.githubusercontent.com/62290713/156914456-8e6bbca0-ad42-4a83-b716-866f55c4f04b.png)
